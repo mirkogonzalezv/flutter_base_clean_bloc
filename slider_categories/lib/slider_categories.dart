@@ -10,41 +10,30 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
+// final List<String> imgList = [
+//   'https://soa-desa-iis.imperial.cl/RsAppImperialV3/images/BlackF.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/maderasymuebleria.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/construccion.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/terminacionesyobragruesa.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/pisos.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/pinturasyaccesorios.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/bano.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/cocina.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/electricidad.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/ferreteria.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/herramientasymaquinaria.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/plomeriaygasfiteria.png',
+//   'https://soa-desa-iis.imperial.cl/RsAppImperial/images/jardin.png',
+// ];
+
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          margin: const EdgeInsets.all(5.0),
+          margin: const EdgeInsets.only(left: 5.0, right: 5.0),
           child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               child: Stack(
                 children: <Widget>[
-                  Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                  Positioned(
-                    bottom: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(200, 0, 0, 0),
-                            Color.fromARGB(0, 0, 0, 0)
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                        ),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      child: Text(
-                        'No. ${imgList.indexOf(item)} image',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  Image.network(item, fit: BoxFit.cover, width: 75, height: 75),
                 ],
               )),
         ))
@@ -58,38 +47,44 @@ class SliderCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
+        Padding(
+          padding: const EdgeInsets.only(top: 16.0, left: 12.0, right: 12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                  textAlign: TextAlign.left,
                 ),
               ),
-            ),
-            const Text(
-              'Ver más',
-              style: TextStyle(
-                color: Color.fromARGB(255, 28, 144, 238),
-                fontSize: 14,
-                decoration: TextDecoration.underline,
+              const Text(
+                'Ver todas',
+                style: TextStyle(
+                  color: Color(0xFF0C69AE),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  decoration: TextDecoration.underline,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+        const SizedBox(height: 8.0),
         CarouselSlider(
           options: CarouselOptions(
             autoPlay: false,
             aspectRatio: 2.0,
             enlargeCenterPage: false,
+            viewportFraction: 0.2,
           ),
           items: imageSliders,
         ),
