@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:profile_bloc_app/common/variables/router_var.dart';
 import 'package:profile_bloc_app/features/users/presentation/bloc/users_bloc.dart';
-import 'package:slider_categories/slider_categories.dart';
+import 'package:slider_categories/features/slider_categories/slider_categories.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SliderCategories(title: 'Categorías'),
             const Text('Soy Home Page'),
             ElevatedButton(
               onPressed: () {
@@ -27,6 +26,7 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Ver Usuarios'),
             ),
+            const SliderCategories(title: 'Categorías'),
           ],
         ),
       ),
