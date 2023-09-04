@@ -35,14 +35,33 @@ class SliderCategories extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Text(
-                  'Ver todas',
-                  style: TextStyle(
-                    color: Color(0xFF0C69AE),
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    decoration: TextDecoration.underline,
-                  ),
+                BlocBuilder<SliderCategoriesBloc, SliderCategoriesState>(
+                  builder: (context, state) {
+                    return state.when(
+                      success: (categories) {
+                        return const Text(
+                          'Ver todas',
+                          style: TextStyle(
+                            color: Color(0xFF0C69AE),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            decoration: TextDecoration.underline,
+                          ),
+                        );
+                      },
+                      error: () {
+                        return const Text(
+                          '',
+                        );
+                      },
+                      initial: () {
+                        return Container();
+                      },
+                      loading: () {
+                        return Container();
+                      },
+                    );
+                  },
                 ),
               ],
             ),
@@ -66,7 +85,10 @@ class SliderCategories extends StatelessWidget {
                         autoPlay: false,
                         aspectRatio: 2.8,
                         enlargeCenterPage: false,
-                        viewportFraction: 0.2,
+                        viewportFraction: 0.3,
+                        enableInfiniteScroll: false,
+                        initialPage: 0,
+                        scrollDirection: Axis.horizontal,
                       ),
                       items: categories.map((category) {
                         return Container(
