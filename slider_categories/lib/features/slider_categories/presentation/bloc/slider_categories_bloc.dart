@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:slider_categories/features/slider_categories/domain/models/category.dart';
-import 'package:slider_categories/features/slider_categories/domain/usecases/get_categories_usescases.dart';
+
+import '../../domain/models/category.dart';
+import '../../domain/usecases/get_categories_usescases.dart';
 
 part 'slider_categories_event.dart';
 part 'slider_categories_state.dart';

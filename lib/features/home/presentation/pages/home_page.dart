@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:profile_bloc_app/common/variables/router_var.dart';
 import 'package:profile_bloc_app/features/users/presentation/bloc/users_bloc.dart';
 import 'package:slider_categories/features/slider_categories/slider_categories.dart';
+import 'package:slider_categories/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Ver Usuarios'),
             ),
-            const SliderCategories(title: 'Categorías'),
+            const SliderCategoriesMicroApp(),
           ],
         ),
       ),

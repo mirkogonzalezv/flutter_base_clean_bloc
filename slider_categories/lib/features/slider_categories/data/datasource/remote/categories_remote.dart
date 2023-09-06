@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:slider_categories/features/slider_categories/domain/models/category.dart';
+
+import '../../../domain/models/category.dart';
 
 class CategoriesRemoteDataSource {
   final _dio = Dio();
